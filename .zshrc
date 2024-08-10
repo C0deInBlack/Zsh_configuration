@@ -43,7 +43,7 @@ zstyle ':completion:*' verbose true
 
 zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
 zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
-source /home/user/powerlevel10k/powerlevel10k.zsh-theme
+source /home/gh0st/powerlevel10k/powerlevel10k.zsh-theme
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
@@ -52,38 +52,37 @@ source /home/user/powerlevel10k/powerlevel10k.zsh-theme
 
 PATH=/root/.local/bin:/snap/bin:/usr/sandbox/:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/usr/share/games:/usr/local/sbin:/usr/sbin:/sbin:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games
 
-# Manual aliases
-alias ll='lsd -lh --group-dirs=first'
+# Custom PATH
+#export PATH=$PATH:$HOME/Programming/Custom_commands/
+#export PATH=$PATH:$HOME/Programming/Bash/YT-DLP/
+#export PATH=$PATH:$HOME/.local/bin/
+#export PATH=$PATH:$HOME/Tools/exiftool
+
+# Custom aliases
+alias ll='lsd -lha --group-dirs=first'
 alias la='lsd -a --group-dirs=first'
-alias l='lsd --group-dirs=first'
+alias l='clear; lsd -a --group-dirs=first'
 alias lla='lsd -lha --group-dirs=first'
-alias ls='lsd --group-dirs=first'
+alias ls='lsd -a --group-dirs=first'
 alias cat='bat'
+alias cd..='cd ..'
+alias icat='kitten icat'
+#alias pyenv='python3 -m venv'
 alias off='shutdown now'
+#alias firejail-l='firejail --list'
+#alias pyftp='sudo python -m pyftpdlib -p 21 '
+#alias pyhttp='sudo python -m http.server 80'
+#alias lock='betterlockscreen -l'
+
+# More aliases
+#alias arduino='/home/gh0st/Tools/Arduino/arduino-ide/arduino-ide &'
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-# Plugins
+# Zsh Plugins
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 #source /usr/share/zsh-sudo/sudo.plugin.zsh
-
-# Functions
-#function mkt(){
-#	mkdir {nmap,content,exploits,scripts}
-#}
-
-# Extract nmap information
-#function extractPorts(){
-#	ports="$(cat $1 | grep -oP '\d{1,5}/open' | awk '{print $1}' FS='/' | xargs | tr ' ' ',')"
-#	ip_address="$(cat $1 | grep -oP '\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}' | sort -u | head -n 1)"
-#	echo -e "\n[*] Extracting information...\n" > extractPorts.tmp
-#	echo -e "\t[*] IP Address: $ip_address"  >> extractPorts.tmp
-#	echo -e "\t[*] Open ports: $ports\n"  >> extractPorts.tmp
-#	echo $ports | tr -d '\n' | xclip -sel clip
-#	echo -e "[*] Ports copied to clipboard\n"  >> extractPorts.tmp
-#	cat extractPorts.tmp; rm extractPorts.tmp
-#}
 
 # Set 'man' colors
 function man() {
@@ -155,3 +154,11 @@ bindkey '^[[1;5D' backward-word                                 #
 bindkey '^[[1;5C' forward-word                                  #
 bindkey '^H' backward-kill-word                                 # delete previous word with ctrl+backspace
 bindkey '^[[Z' undo     
+
+
+# Created by `pipx` on 2024-03-11 01:21:03
+#export PATH="$PATH:/home/gh0st/.local/bin"
+
+# zoxide
+#eval "$(zoxide init zsh)"
+
